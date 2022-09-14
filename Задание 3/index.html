@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+      <button class="one">Результат первого задания</button>
+      <button class="two">Результат второго задания</button>
+      <button class="three">Результат третьего задания</button>
+      <script>
+        let buttonOne = document.querySelector('.one');
+        let buttonTwo = document.querySelector('.two');
+        let buttonThree = document.querySelector('.three');
+        buttonOne.addEventListener('click', function one(){
+          let arr= ['js', 'css', 'html'];
+          alert(arr[0]);
+        });
+        buttonTwo.addEventListener('click', function two(){
+          let arr= [0, 1, false, 2, undefined, '', 3, null];
+          let res = arr.filter(elem => typeof elem === 'number');
+          alert(res);
+        });
+        buttonThree.addEventListener('click', function three(){
+          let arr= [[1,2], [1,2,3], [1,2,3,4]];
+          let res = arr.findIndex(elem => elem.length > 3);
+          alert(res);
+        });
+        
+      </script>
+</body>
+</html>

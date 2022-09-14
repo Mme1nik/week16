@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Введите число:</p>
+    <input class="input__num" type="text">
+    <button class="buttonNext">Следующее число</button><br><br>
+    <button class="buttonFinish">Готово!</button>
+      <script>
+        let buttonFin = document.querySelector('.buttonFinish');
+        let buttonNext = document.querySelector('.buttonNext');
+        let newArr = [];
+        function sumInput(){
+              newArr.sort((a,b)=>a-b);
+              alert(newArr);
+              let res = newArr.reduce((sum, current) => +sum + +current, 0);
+              alert(res);
+        }
+        function getInput(){
+            let num = document.querySelector('.input__num');
+            if(!isNaN(parseFloat(num.value)) && isFinite(+num.value)) {
+            newArr.push(num.value);
+            console.log(newArr);
+            num.value = '';
+            alert('Введите число');
+            } else{
+              sumInput();
+            }
+          }
+            buttonNext.addEventListener('click', getInput);
+            buttonFin.addEventListener('click', sumInput);
+      </script>
+</body>
+</html>

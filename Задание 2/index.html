@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+      <p>Цена на аукционе, р:</p> 
+      <input class="cost" type="text">
+      <p>Аукцион:</p>  
+      <select class="select">
+          <option selected value="20000">(По умолчанию) 20 000р</option>
+          <option value="30000">ARAI BAISAD</option>
+          <option value="40000">BAYAUK</option>
+          <option value="50000">HERO</option>
+          <option value="60000">HONDA TOKYIO</option>
+      </select>
+      <p>Тип услуги:</p>  
+      <p><input name="service" type="radio" value="200000" checked> Целый автомобиль</p>
+      <p><input name="service" type="radio" value="50000"> Распил легковой</p>
+      <p><input name="service" type="radio" value="40000"> Распил рамный</p>
+      <p><input name="service" type="radio" value="20000"> Запчасти на палете</p>
+      <p>Мощность, л.с.:</p>
+      <input class="power" type="text">
+      <p>Возраст автомобиля;</p>
+      <p><input name="age" type="radio" value="500000"> Меньше 3 лет</p>
+      <p><input name="age" type="radio" value="250000" checked> От 3 до 5 лет</p>
+      <p><input name="age" type="radio" value="100000"> От 5 до 7 лет</p>
+      <p><input name="age" type="radio" value="10000"> Больше 7 лет</p>
+      <p>Получатель"</p>
+      <p><input name="get" type="radio" value="80000" checked> Физическое лицо</p>
+      <p><input name="get" type="radio" value="90000"> Юридическое лицо</p>
+      <button>Рассчитать:</button>
+      <script>
+        let button = document.querySelector('button');
+        function calc(){
+          let cost = document.querySelector('.cost').value;
+          let costSum;
+          if(!isNaN(parseFloat(cost)) && isFinite(+cost)){
+            costSum = cost;
+          }else{
+            costSum = 0;
+          };
+          document.querySelector('.cost').value='';
+          console.log(costSum);
+          let select = document.querySelector('.select').value;
+          console.log(select);
+          let radioServ = document.querySelector('input[name="service"]:checked').value;
+          console.log(radioServ);
+          let power = document.querySelector('.power').value;
+          let radioAge = document.querySelector('input[name="age"]:checked').value;
+          console.log(radioAge);
+          let radioGet = document.querySelector('input[name="get"]:checked').value;
+          console.log(radioGet);
+          let powerSum;
+          if(power <=1 && power > 0){
+            powerSum = 12000;
+          }else if(power > 1 && power <= 5) {
+            powerSum = 19000;
+          } else if(power > 5){
+            powerSum = 55559;
+          }else{
+            powerSum = 0;
+          };
+          console.log(powerSum);
+          document.querySelector('.power').value='';
+            let result = +costSum + +select + +radioServ + powerSum + +radioAge + +radioGet;
+            alert(result);
+            console.clear()
+          } 
+        button.addEventListener('click', calc);
+      </script>
+</body>
+</html>
